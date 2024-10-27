@@ -1,7 +1,33 @@
-﻿@{
+﻿@model ContactsFormModel
+@{
     ViewData["Title"] = "Contacts Page";
+    // TODO: Would like to add client-side validation as well as server-side.
+    // Validation.RequireField("firstName", "First name cannot be empty");
+    // Validation.RequireField("lastName", "Last name cannot be empty");
+    // Validation.RequireField("email", "Email must be a valid email address.");
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4">Please enter your data below:</h1>
+    <form method="post">
+        @Html.ValidationSummary()
+        <div>
+            <label for="FirstName">First Name: </label> 
+            <input name="FirstName" asp-for="FormContact.FirstName" type="text"/> 
+            @Html.ValidationMessage("FirstName")
+        </div>
+        <div>
+            <label for="LastName">Last Name: </label>
+            <input name="LastName" asp-for="FormContact.LastName" type="text"/>
+            @Html.ValidationMessage("LastName")
+        </div>
+        <div>
+            <label for="Email">Email: </label> 
+            <input name="Email" asp-for="FormContact.Email" type="email"/>
+            @Html.ValidationMessage("Email")
+        </div>
+        <div>
+            <input type="submit"/>
+        </div>
+    </form>
 </div>
