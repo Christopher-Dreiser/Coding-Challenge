@@ -37,8 +37,11 @@ function App() {
                             </button>
                             <div className="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                                 <ul className="navbar-nav flex-grow-1">
-                                    <li className="nav-item">
-                                        <a className="nav-link text-dark" asp-area="" asp-controller="Contacts" asp-action="Index">Contacts</a>
+                                    <li className="nav-item" onClick={() => setTabIndex(0)}>
+                                        <a className="nav-link text-dark">Add Contact</a>
+                                    </li>
+                                    <li className="nav-item" onClick={() => setTabIndex(1)}>
+                                        <a className="nav-link text-dark">View Contacts</a>
                                     </li>
                                 </ul>
                             </div>

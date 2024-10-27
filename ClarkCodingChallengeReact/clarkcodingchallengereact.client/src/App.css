@@ -1,4 +1,12 @@
-﻿#root {
-    top: 0px;
-    bottom: 0px;
+﻿.navbar-nav {
+    list-style: none;
+    display: inline-flex;
+}
+
+.nav-item {
+    padding: 4px;
+}
+
+.nav-link {
+    cursor: pointer;
 }
