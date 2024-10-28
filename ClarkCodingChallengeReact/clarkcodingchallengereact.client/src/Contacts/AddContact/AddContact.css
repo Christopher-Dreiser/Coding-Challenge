@@ -1,0 +1,20 @@
+.add-contact-page {
+    align-items: center;
+    align-content: center;
+    display: inline-flex;
+    flex-direction: column;
+    div {
+        padding: 4px;
+    }
+}
+
+.is-submitted {
+    .submit-message {
+        display: block;
+        background-color: rgba(0, 256, 0, 0.5);
+    }
+}
+
+.submit-message {
+    display: none;
+}

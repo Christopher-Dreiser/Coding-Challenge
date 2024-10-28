@@ -36,6 +36,7 @@ function App() {
                                 <span className="navbar-toggler-icon"></span>
                             </button>
                             <div className="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                                { /* TODO: Replace with React router for production */}
                                 <ul className="navbar-nav flex-grow-1">
                                     <li className="nav-item" onClick={() => setTabIndex(0)}>
                                         <a className="nav-link text-dark">Add Contact</a>
@@ -49,10 +50,8 @@ function App() {
                     </nav>
                 </header>
                 <div className="container">
-                    <main role="main" className="pb-3">
-                        { /* TODO: Replace with React router for production */ }
-                        <Contacts index={tabIndex}/>
-                    </main>
+                    { /* TODO: Replace with React router for production */ }
+                    <Contacts index={tabIndex}/>
                 </div>
 
                 <environment include="Development">
