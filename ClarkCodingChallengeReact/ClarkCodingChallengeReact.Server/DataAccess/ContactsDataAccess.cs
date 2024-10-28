@@ -1,6 +1,4 @@
 ﻿using ClarkCodingChallengeReact.Server.Models;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace ClarkCodingChallengeReact.Server.DataAccess
 {
@@ -25,9 +23,14 @@ namespace ClarkCodingChallengeReact.Server.DataAccess
             return true;
         }
 
-        public IEnumerable<Contact> GetContacts()
+        public IEnumerable<Contact> GetContacts(string lastName)
         {
-            return _contacts;
+            if (string.IsNullOrEmpty(lastName))
+            {
+                return _contacts;
+            }
+
+            return _contacts.Where(c => c.LastName.Equals(lastName, StringComparison.CurrentCultureIgnoreCase));
         }
     }
 }

@@ -8,6 +8,6 @@ namespace ClarkCodingChallengeReact.Server.DataAccess
 
         bool AddContact(Contact contact);
 
-        IEnumerable<Contact> GetContacts();
+        IEnumerable<Contact> GetContacts(string lastName);
     }
 }

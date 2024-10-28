@@ -1,32 +1,37 @@
 ﻿using ClarkCodingChallengeReact.Server.Models;
 using ClarkCodingChallengeReact.Server.DataAccess;
-using System.Collections.Generic;
-using System.Linq;
+using ClarkCodingChallengeReact.Server.Enum;
 
 namespace ClarkCodingChallengeReact.Server.BusinessLogic
 {
     public class ContactsService : IContactsService
     {
-        private readonly ContactsDataAccess _contactsAccess;
+        private readonly IContactsRepository _contactsRepository;
 
-        public ContactsService(ContactsDataAccess contactsDataAccess)
+        public ContactsService(IContactsRepository contactsRepository)
         {
-            _contactsAccess = contactsDataAccess;
+            _contactsRepository = contactsRepository;
         }
 
         public bool VerifyEmail(string email)
         {
-            return !_contactsAccess.Exists(email);
+            return !_contactsRepository.Exists(email);
         }
 
         public bool AddContact(Contact contact)
         {
-            return _contactsAccess.AddContact(contact);
+            return _contactsRepository.AddContact(contact);
         }
 
-        public IEnumerable<Contact> GetContacts()
+        public IEnumerable<Contact> GetContacts(string lastName, SortDirection sortDirection)
         {
-            return _contactsAccess.GetContacts();
+            var results = _contactsRepository.GetContacts(lastName);
+
+            if (sortDirection == SortDirection.Ascending)
+            {
+                return results.OrderBy(r => r.LastName).ThenBy(r => r.FirstName);
+            }
+            return results.OrderByDescending(r => r.LastName).ThenByDescending(r => r.FirstName);
         }
     }
 }

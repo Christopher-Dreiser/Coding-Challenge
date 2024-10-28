@@ -3,7 +3,6 @@ using ClarkCodingChallengeReact.Server.Controllers;
 using ClarkCodingChallengeReact.Server.Models;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
-using System.Net;
 
 namespace ClarkCodingChallengeReact.Server.Tests
 {

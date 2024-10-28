@@ -1,4 +1,5 @@
-﻿using ClarkCodingChallengeReact.Server.Models;
+﻿using ClarkCodingChallengeReact.Server.Enum;
+using ClarkCodingChallengeReact.Server.Models;
 
 namespace ClarkCodingChallengeReact.Server.BusinessLogic
 {
@@ -6,7 +7,7 @@ namespace ClarkCodingChallengeReact.Server.BusinessLogic
     {
         bool AddContact(Contact contact);
 
-        IEnumerable<Contact> GetContacts();
+        IEnumerable<Contact> GetContacts(string lastName, SortDirection sortDirection);
 
         bool VerifyEmail(string email);
     }

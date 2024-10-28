@@ -1,4 +1,5 @@
 using ClarkCodingChallengeReact.Server.BusinessLogic;
+using ClarkCodingChallengeReact.Server.Enum;
 using ClarkCodingChallengeReact.Server.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -34,9 +35,9 @@ namespace ClarkCodingChallengeReact.Server.Controllers
         }
 
         [HttpGet("")]
-        public IActionResult GetContacts()
+        public IActionResult GetContacts(string lastName = "", SortDirection sortDirection = SortDirection.Descending)
         {
-            return Ok(_contactsService.GetContacts());
+            return Ok(_contactsService.GetContacts(lastName, sortDirection));
         }
 
         private ValidationResult ValidateUserInfo(Contact contact)
