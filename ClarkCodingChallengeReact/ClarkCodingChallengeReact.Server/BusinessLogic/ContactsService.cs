@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace ClarkCodingChallengeReact.Server.BusinessLogic
 {
-    public class ContactsService
+    public class ContactsService : IContactsService
     {
         private readonly ContactsDataAccess _contactsAccess;
 

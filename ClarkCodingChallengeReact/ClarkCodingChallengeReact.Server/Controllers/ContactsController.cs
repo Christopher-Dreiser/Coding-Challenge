@@ -8,9 +8,9 @@ namespace ClarkCodingChallengeReact.Server.Controllers
     [Route("Contacts")]
     public partial class ContactsController : ControllerBase
     {
-        private readonly ContactsService _contactsService;
+        private readonly IContactsService _contactsService;
 
-        public ContactsController(ContactsService contactsService)
+        public ContactsController(IContactsService contactsService)
         {
             _contactsService = contactsService;
         }

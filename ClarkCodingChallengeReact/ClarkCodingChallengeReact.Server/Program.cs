@@ -10,8 +10,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddTransient<ContactsService>();
-builder.Services.AddSingleton<ContactsDataAccess>();
+builder.Services.AddTransient<IContactsService, ContactsService>();
+builder.Services.AddSingleton<IContactsRepository, ContactsDataAccess>();
 
 var app = builder.Build();
 
